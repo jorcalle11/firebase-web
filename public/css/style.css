@@ -1,0 +1,199 @@
+body {
+  font-family: Roboto, Arial, sans-serif;
+  background: #ECEFF1;
+  color: rgba(0,0,0,0.87);
+}
+
+a {
+  color: rgb(3,155,229);
+}
+
+#message {
+  max-width: 80%;
+  margin: 40px auto;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
+  border-radius: 2px;
+  background: white;
+  padding: 16px 24px;
+}
+
+#message h1 {
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+  margin: 0 0 16px;
+}
+
+#message p {
+  text-align: center;
+  font-weight: 300;
+  line-height: 150%;
+}
+
+/*#message ul {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  text-align: center;
+}*/
+
+p a {
+  display: inline-block;
+  cursor: pointer;
+  padding: 8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  background: rgb(3,155,229);
+  color: white;
+  border: 1px solid rgb(3,155,229);
+  border-radius: 3px;
+  font-size: 14px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.container article {
+  position: relative;
+  width: 500px;
+  margin: 10px;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
+  border-radius: 2px;
+  background: white;
+}
+
+.container article h4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 3px;
+  background: rgb(3,155,229);
+  margin: 0;
+  color: white;
+  text-align: center;
+}
+
+.list {
+  margin-top: 40px;
+}
+
+.list li {
+  padding: 4px;
+  position: relative;
+}
+
+.alert {
+  margin: 8% auto;
+  text-align: center;
+  color: #EA4335;
+}
+
+.user {
+  color: rgb(3,155,229);
+  font-size: .8em;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.user::before{
+  content: '@';
+}
+
+.display-none {
+  display: none !important;
+}
+
+.badge {
+  font-size: .8em;
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #34A853;
+  color: white;
+  padding: 3px;
+  text-align: center;
+}
+
+.badge::before {
+  content: '$';
+  margin-right:3px;
+}
+
+.description {
+  display: block;
+  font-style: italic;
+  color: rgb(3,155,229);
+}
+
+input[name="name"] {
+  border-color: transparent;
+  font-size: 1em;
+  width: 80%;
+}
+
+input[name="description"] {
+  border-color: transparent;
+  width: 80%;
+}
+
+input[name="price"] {
+  width: 60px;
+  border-color: transparent;
+}
+
+input[name="name"]:focus,
+input[name="description"]:focus,
+input[name="price"]:focus {
+  outline-color: transparent;
+}
+
+.btn {
+  display: inline-block;
+  text-transform: uppercase;
+  border: 0;
+  outline: 0;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
+}
+
+.btn-primary {
+  background: rgb(3,155,229);
+  color: #fff;
+}
+
+.btn-danger {
+  background: #EA4335;
+  color: #fff;
+}
+
+.btn-success {
+  background: #34A853;
+  color: #fff;
+}
+
+.options {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 70%;
+  padding: 3px;
+}
+
+.options span {
+  cursor: pointer;
+  margin-right: 7px;
+  font-weight: bold;
+}

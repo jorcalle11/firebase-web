@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Firebase Hosting</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div id="message">
+      <h1> Hello <span id="welcomeName"></span>, Welcome to Firebase Hosting</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <p>
+        <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a></li>
+      </p>
+    </div>
+    <section class="container">
+      <article>
+        <h4>Lista de productos</h4>
+        <p class="alert" id="alertProducts">Cargando datos, espere...</p>
+        <ul id="listProducts" class="list">
+          <li>
+            <form name="formAddProduct">
+              <input type="text" id="inputName" name="name" placeholder="Motorola moto g">
+              <input type="text" id="inputDescription" name="description" class="description" placeholder="mi super teléfono">
+              <input type="number" id="inputPrice" name="price" class="badge" placeholder="250000" min="0">
+              <button class="btn btn-success" id="btnAddProduct">+</button>
+              <button class="btn btn-primary display-none" id="btnUpdateProduct">Actualizar</button>
+              <button class="btn btn-danger display-none" id="btnReset" style="margin-left:5px">Limpiar</button>
+            </form>
+          </li>
+        </ul>
+      </article>
+      <article>
+        <h4>Lista de Tareas</h4>
+        <p class="alert" id="alertTasks">Cargando datos, espere...</p>
+        <ul id="tasks" class="list"></ul>
+      </article>
+    </section>
+    <script src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/tasks.js"></script>
+  </body>
+</html>
