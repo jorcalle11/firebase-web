@@ -17,6 +17,7 @@
   const listProducts     = document.getElementById('listProducts')
 
   // listeners de firebase
+  productsRef.once('value').then(initValues)
   productsRef.on('child_added',    addProductList)
   productsRef.on('child_changed',  updateProductList)
   productsRef.on('child_removed',  removeProductList)
@@ -26,47 +27,49 @@
   btnUpdateProduct.addEventListener('click',updateProduct)
   btnReset.addEventListener('click', resetValues)
 
+  function initValues(snapshot){
+    alertProducts.classList.add('display-none')
+  }
 
-  function addProductList(snap){
+  function addProductList(snapshot){
     const li = document.createElement('li')
     const spanName = document.createElement('span')
     const spanPrice = document.createElement('span')
     const smallDescription = document.createElement('small')
 
-    spanName.id = `name${snap.key}`
-    spanName.innerText = snap.val().name
+    spanName.id = `name${snapshot.key}`
+    spanName.innerText = snapshot.val().name
 
-    spanPrice.id = `price${snap.key}`
+    spanPrice.id = `price${snapshot.key}`
     spanPrice.classList.add('badge')
-    spanPrice.innerText = snap.val().price
+    spanPrice.innerText = snapshot.val().price
 
-    smallDescription.id = `description${snap.key}`
+    smallDescription.id = `description${snapshot.key}`
     smallDescription.classList.add('description')
-    smallDescription.innerText = snap.val().description
+    smallDescription.innerText = snapshot.val().description
 
-    li.id = snap.key
+    li.id = snapshot.key
     li.appendChild(spanName)
     li.appendChild(spanPrice)
     li.appendChild(smallDescription)
 
-    createOptions(li,snap.key)
-    alertProducts.classList.add('display-none')
+    createOptions(li,snapshot.key)
     listProducts.appendChild(li)
-    addEventMouseEnter(li,snap.key)
+    addEventMouseEnter(li,snapshot.key)
   }
 
-  function updateProductList(snap){
-    const spanName = document.getElementById(`name${snap.key}`)
-    const spanPrice = document.getElementById(`price${snap.key}`)
-    const smallDescription = document.getElementById(`description${snap.key}`)
+  function updateProductList(snapshot){
+    const spanName = document.getElementById(`name${snapshot.key}`)
+    const spanPrice = document.getElementById(`price${snapshot.key}`)
+    const smallDescription = document.getElementById(`description${snapshot.key}`)
 
-    spanName.innerText = snap.val().name
-    spanPrice.innerText = Number(snap.val().price)
-    smallDescription.innerText = snap.val().description
+    spanName.innerText = snapshot.val().name
+    spanPrice.innerText = Number(snapshot.val().price)
+    smallDescription.innerText = snapshot.val().description
   }
 
-  function removeProductList(snap){
-    const li = document.getElementById(snap.key)
+  function removeProductList(snapshot){
+    const li = document.getElementById(snapshot.key)
     li.remove()
   }
 
@@ -110,11 +113,13 @@
     div.id = `option${id}`
     div.classList.add('options','display-none')
 
-    spanEdit.innerText = 'O'
+    // editar
+    spanEdit.classList.add('fa','fa-pencil')
     spanEdit.style.color = '#FBBC05'
     spanEdit.addEventListener('click', e => handleClickEdit(id))
     
-    spanRemove.innerText = 'X'
+    // eliminar
+    spanRemove.classList.add('fa','fa-close')
     spanRemove.style.color = '#EA4335'
     spanRemove.addEventListener('click', e => productsRef.child(id).remove())
 
@@ -130,10 +135,10 @@
 
     productRef = productsRef.child(id);
 
-    productRef.on('value', snap => {
-      inputName.value = snap.val().name
-      inputDescription.value = snap.val().description
-      inputPrice.value = Number(snap.val().price)
+    productRef.on('value', snapshot => {
+      inputName.value = snapshot.val().name
+      inputDescription.value = snapshot.val().description
+      inputPrice.value = Number(snapshot.val().price)
     })
   }
 

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Welcome to Firebase Hosting</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <div id="message">
@@ -16,14 +17,14 @@
     <section class="container">
       <article>
         <h4>Lista de productos</h4>
-        <p class="alert" id="alertProducts">Cargando datos, espere...</p>
+        <p class="alert" id="alertProducts"><span class="fa fa-spinner rotate"></span> Cargando datos, espere...</p>
         <ul id="listProducts" class="list">
           <li>
             <form name="formAddProduct">
               <input type="text" id="inputName" name="name" placeholder="Motorola moto g">
               <input type="text" id="inputDescription" name="description" class="description" placeholder="mi super teléfono">
               <input type="number" id="inputPrice" name="price" class="badge" placeholder="250000" min="0">
-              <button class="btn btn-success" id="btnAddProduct">+</button>
+              <button class="btn btn-success" id="btnAddProduct"><span class="fa fa-plus"></span></button>
               <button class="btn btn-primary display-none" id="btnUpdateProduct">Actualizar</button>
               <button class="btn btn-danger display-none" id="btnReset" style="margin-left:5px">Limpiar</button>
             </form>
@@ -32,8 +33,16 @@
       </article>
       <article>
         <h4>Lista de Tareas</h4>
-        <p class="alert" id="alertTasks">Cargando datos, espere...</p>
-        <ul id="tasks" class="list"></ul>
+        <p class="alert" id="alertTasks"><span class="fa fa-spinner rotate"></span> Cargando datos, espere...</p>
+        <ul id="tasks" class="list">
+          <li>
+            <form name="addTaskForm">
+              <input type="text" id="inputTask" name="task" placeholder="Tu super tarea...">
+              <input type="text" id="inputUsername" name="username" placeholder="pepito">
+              <button class="btn btn-success" id="btnAddTask"><span class="fa fa-plus"></span></button>
+            </form>
+          </li>
+        </ul>
       </article>
     </section>
     <script src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>

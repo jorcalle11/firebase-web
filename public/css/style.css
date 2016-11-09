@@ -97,11 +97,24 @@ p a {
   color: #EA4335;
 }
 
+.task::after{
+  content: 'por';
+  font-size: .7em;
+  font-style: italic;
+  margin-left: 10px;
+}
+
+.task-complete {
+  text-decoration: line-through;
+  color: #ECEFF1 !important;
+}
+
 .user {
   color: rgb(3,155,229);
   font-size: .8em;
   font-style: italic;
   font-weight: 400;
+  margin-left: 2px;
 }
 
 .user::before{
@@ -135,25 +148,35 @@ p a {
   color: rgb(3,155,229);
 }
 
-input[name="name"] {
+input{
   border-color: transparent;
+}
+
+input[name="name"] {
   font-size: 1em;
   width: 80%;
 }
 
 input[name="description"] {
-  border-color: transparent;
   width: 80%;
 }
 
 input[name="price"] {
   width: 60px;
-  border-color: transparent;
 }
 
-input[name="name"]:focus,
-input[name="description"]:focus,
-input[name="price"]:focus {
+input[name="task"]{
+  font-size: 1em;
+  width: 60%;
+}
+
+input[name="username"]{
+  width: 20%;
+  font-style: italic;
+  color: rgb(3,155,229);
+}
+
+input:focus {
   outline-color: transparent;
 }
 
@@ -196,4 +219,32 @@ input[name="price"]:focus {
   cursor: pointer;
   margin-right: 7px;
   font-weight: bold;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.rotate {
+  animation-name: spin;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@-ms-keyframes spin {
+  from { -ms-transform: rotate(0deg); }
+  to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  from { transform:rotate(0deg); }
+  to { transform:rotate(360deg); }
 }

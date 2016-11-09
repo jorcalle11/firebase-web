@@ -15,5 +15,5 @@
   const objectRef   = rootRef.child('object')
   const welcomeName  = document.getElementById('welcomeName')
 
-  objectRef.on('value', snap => welcomeName.innerText = snap.val().name)
+  objectRef.on('value', snapshot => welcomeName.innerText = snapshot.val().name)
 })()
