@@ -8,14 +8,41 @@
   </head>
   <body>
     <div id="message">
-      <h1> Hello <span id="welcomeName"></span>, Welcome to Firebase Hosting</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <p>
-        <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a></li>
-      </p>
+      <h1>Firebase en la web</h1>
+      <p>Implementación de las funcionalidades de firebase en la web, utilizando <strong>Javascript</strong> vainilla sin frameworks, y a la vez haciendo uso de Ecmascript 6.</p>
+      <section id="welcomeContainer" class="display-none">
+        <p> Hello <img id="avatar" class="avatar display-none" src="" alt="avatar" width="50" height="50"> <strong id="username"></strong>, Welcome to Firebase Hosting</p>
+        <button class="btn btn-danger" id="btnSignOut">
+          Cerrar sesión
+          <span class="fa fa-sign-out"></span>
+        </button>
+      </section>
+      <form name="loginForm">
+        <h2>Login</h2>
+        <input type="email" id="inputEmail" placeholder="Escribe tu email">
+        <input type="password" id="inputPassword" placeholder="y tu contraseña">
+        <p id="messageError" class="display-none"></p>
+        <div class="btn-group">
+          <button class="btn btn-success" id="btnSignUp">
+            <span class="fa fa-user-plus"></span>
+          </button>
+          <button class="btn btn-success" id="btnSignIn">
+            <span class="fa fa-sign-in"></span>
+          </button>
+          <button class="btn btn-primary" id="btnSignInWithGoogle">
+            <span class="fa fa-google"></span>
+          </button>
+          <button class="btn btn-primary" id="btnSignInWithTwitter">
+            <span class="fa fa-twitter"></span>
+          </button>
+          <button class="btn btn-primary" id="btnSignInWithGithub">
+            <span class="fa fa-github"></span>
+          </button>
+        </div>
+      </form>
     </div>
-    <section class="container">
-      <article>
+    <section id="sectionLists" class="container display-none">
+      <article id="sectionProducts">
         <h4>Lista de productos</h4>
         <p class="alert" id="alertProducts"><span class="fa fa-spinner rotate"></span> Cargando datos, espere...</p>
         <ul id="listProducts" class="list">
@@ -31,7 +58,7 @@
           </li>
         </ul>
       </article>
-      <article>
+      <article id="sectionTasks">
         <h4>Lista de Tareas</h4>
         <p class="alert" id="alertTasks"><span class="fa fa-spinner rotate"></span> Cargando datos, espere...</p>
         <ul id="tasks" class="list">
@@ -45,8 +72,12 @@
         </ul>
       </article>
     </section>
+    <!-- libs -->
     <script src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- source -->
     <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
     <script src="js/products.js"></script>
     <script src="js/tasks.js"></script>
   </body>

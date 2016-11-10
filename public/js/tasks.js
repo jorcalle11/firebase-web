@@ -1,4 +1,4 @@
-(()=>{
+(() => {
   'use strict'
 
   // referencias a firebase
